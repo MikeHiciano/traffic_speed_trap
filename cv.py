@@ -6,8 +6,8 @@ import cv2
 #camera.resolution = (500,300)
 
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT,320)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH,240)
+#cap.set(cv2.CAP_PROP_FRAME_HEIGHT,320)
+#cap.set(cv2.CAP_PROP_FRAME_WIDTH,240)
 object_detector = cv2.createBackgroundSubtractorMOG2()
 cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt2.xml")
 
