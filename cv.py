@@ -1,5 +1,9 @@
+from picamera import PiCamera
 import cv2
 #import numpy as np
+
+camera = PiCamera()
+camera.resolution = (500,300)
 
 cap = cv2.VideoCapture(0)
 object_detector = cv2.createBackgroundSubtractorMOG2()
