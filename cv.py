@@ -3,7 +3,7 @@ import cv2
 
 cap = cv2.VideoCapture(0)
 object_detector = cv2.createBackgroundSubtractorMOG2()
-cascade = cv2.CascadeClassifier("cars2.xml")
+cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt2.xml")
 
 try: 
     while True:
