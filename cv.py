@@ -6,6 +6,8 @@ import cv2
 #camera.resolution = (500,300)
 
 cap = cv2.VideoCapture(0)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT,400)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH,300)
 object_detector = cv2.createBackgroundSubtractorMOG2()
 cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt2.xml")
 
@@ -13,7 +15,7 @@ try:
     while True:
         ret, frame= cap.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        b = cv2.resize(frame,(400,250),fx=0,fy=0, interpolation=cv2.INTER_CUBIC)
+        #b = cv2.resize(frame,(400,250),fx=0,fy=0, interpolation=cv2.INTER_CUBIC)
         #fc = face_cascade.load("")
         obj = cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=1)
         mask = object_detector.apply(frame)
@@ -31,7 +33,7 @@ try:
             end_cord_y = y+h
             cv2.rectangle(frame,(x, y), (end_cord_x,end_cord_y), color, stroke)
         cv2.imshow("frame", frame)
-        cv2.imshow("b",b)
+        #cv2.imshow("b",b)
         cv2.imshow("mask", mask)
 
         key = cv2.waitKey(30)
