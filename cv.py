@@ -10,7 +10,7 @@ try:
     while True:
         ret, frame= cap.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        obj = cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=1)
+        obj = cascade.detectMultiScale(gray, scaleFactor=1.45, minNeighbors=1)
         mask = object_detector.apply(frame)
         for (x,y,w,h) in obj:
             print(x,y,w,h)
