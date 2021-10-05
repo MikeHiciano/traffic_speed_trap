@@ -3,7 +3,7 @@ import cv2
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT,240)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH,320)
-object_detector = cv2.createBackgroundSubtractorMOG2()
+object_detector = cv2.createBackgroundSubtractorMOG2(history=100,varThreshold=35)
 cascade = cv2.CascadeClassifier("cars.xml")
 
 try: 
@@ -20,7 +20,7 @@ try:
             cv2.imwrite(img_item,roi_gray)
 
             color = (255,0,0)
-            stroke = 3
+            stroke = 2
             end_cord_x = x+w
             end_cord_y = y+h
             cv2.rectangle(frame,(x, y), (end_cord_x,end_cord_y), color, stroke)
