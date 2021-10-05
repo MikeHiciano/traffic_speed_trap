@@ -17,7 +17,7 @@ try:
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         #b = cv2.resize(frame,(400,250),fx=0,fy=0, interpolation=cv2.INTER_CUBIC)
         #fc = face_cascade.load("")
-        obj = cascade.detectMultiScale(gray, scaleFactor=2, minNeighbors=2)
+        obj = cascade.detectMultiScale(gray, scaleFactor=1, minNeighbors=1)
         mask = object_detector.apply(frame)
         #contour, _ = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
         for (x,y,w,h) in obj:
