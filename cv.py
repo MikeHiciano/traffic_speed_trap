@@ -3,7 +3,7 @@ import cv2
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT,240)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH,320)
-object_detector = cv2.createBackgroundSubtractorMOG2(history=100,varThreshold=45)
+object_detector = cv2.createBackgroundSubtractorMOG2(history=100,varThreshold=50)
 #cascade = cv2.CascadeClassifier("cars.xml")
 
 
@@ -27,7 +27,7 @@ while True:
         area = cv2.contourArea(cnt)
         if area > 100:
             color = (255,0,0)
-            stroke = 2
+            stroke = 1
             # end_cord_x = x+w
             # end_cord_y = y+h
             # cv2.rectangle(frame,(x, y), (end_cord_x,end_cord_y), color, stroke)
